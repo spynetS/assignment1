@@ -2,8 +2,10 @@ namespace Calculator
 {
 	public class CalculatorModel
 	{
-		public CalculatorModel()
-		{
+		float previusAnswer = 0;
+
+		public float Calculate(string input){
+			return 10;
 		}
 	}
 }

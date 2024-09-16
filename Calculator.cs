@@ -4,7 +4,7 @@
 	{
 		private static void Main(string[] args)
 		{
-			CalculatorController controller = new CalculatorController();
+			CalculatorController controller = new CalculatorController(new CalculatorViewConsole());
 			controller.Run();
 		}
 	}
