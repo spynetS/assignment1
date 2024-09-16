@@ -4,6 +4,8 @@ public class Token
 	public Token(){}
 	public Token(string strValue) {this.strValue = strValue;}
 }
+
+
 public class Operand : Token{
 	float value {get;set;}
 
@@ -12,6 +14,9 @@ public class Operand : Token{
 		this.value = value;
 	}
 }
+
+
+
 public class Operator : Token{
 	public Calculate calculate;
 	public Operator(string strValue) : base(strValue){
