@@ -5,12 +5,13 @@ namespace Calculator
     /// </summary>
     class CalculatorController
     {
-        private CalculatorModel model = new CalculatorModel();
+        private CalculatorModel model;
         private CalculatorView view;
 
-        public CalculatorController(CalculatorView view)
+        public CalculatorController(CalculatorView view, CalculatorModel model)
         {
             this.view = view;
+            this.model = model;
         }
         /// <summary>
         /// The main program loop
