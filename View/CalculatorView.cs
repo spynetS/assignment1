@@ -1,24 +1,5 @@
 namespace Calculator
 {
-	public class CalculatorViewConsole : CalculatorView
-	{
-		public void Home()
-		{
-			Console.Write(" > ");
-		}
-		public void ShowHelp(){
-			Console.WriteLine("Exit to exit");
-			Console.WriteLine("write reverse polish expresion then enter to get answer");
-		}
-		public string GetInput(){
-			return Console.ReadLine();
-		}
-
-		public void ShowAnswer(float answer)
-		{
-			Console.WriteLine("Answer: "+answer);
-      }
-    }
 
 	public interface CalculatorView
 	{
@@ -26,5 +7,26 @@ namespace Calculator
 		public void ShowHelp();
 		public string GetInput();
 		public void ShowAnswer(float answer);
-    }
+	}
+
+	public class CalculatorViewConsole : CalculatorView
+	{
+		public void Home()
+		{
+			Console.Write("Enter an RPN expression > ");
+		}
+		public void ShowHelp(){
+			Console.WriteLine("empty to exit");
+			Console.WriteLine("Help to help");
+			Console.WriteLine("write rpn to get answer");
+		}
+		public string GetInput(){
+			return Console.ReadLine();
+		}
+
+		public void ShowAnswer(float answer)
+		{
+			Console.WriteLine("Result: "+answer);
+	  }
+	}
 }

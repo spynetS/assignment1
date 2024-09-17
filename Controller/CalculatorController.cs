@@ -1,6 +1,8 @@
-
 namespace Calculator
 {
+    /// <summary>
+    /// The controller for our prgram
+    /// </summary>
     class CalculatorController
     {
         private CalculatorModel model = new CalculatorModel();
@@ -10,7 +12,9 @@ namespace Calculator
         {
             this.view = view;
         }
-
+        /// <summary>
+        /// The main program loop
+        /// </summary>
         public void Run()
         {
             while (true)
@@ -26,16 +30,15 @@ namespace Calculator
                 else if (input == "help") view.ShowHelp();
                 else
                 {
-                    if (input == "+")
-                    {
-                        Operator sum = new Operator("asd",(float a, float b) => a+b);
-                        Console.WriteLine(sum.calculate(1, 2));
-                    }
                     //calculate answer
-                    float answer = model.Calculate(input);
-
-                    //show asnwer
-                    view.ShowAnswer(answer);
+                    try{
+                        float answer = model.Calculate(input);
+                        //show asnwer
+                        view.ShowAnswer(answer);
+                    }
+                    catch(Exception e){
+                        Console.WriteLine(e);
+                    }
                 }
             }
         }
