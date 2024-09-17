@@ -2,8 +2,9 @@ namespace Calculator
 {
     public class CalculatorModel
     {
-        float previusAnswer = 0;
-        // 10 10 +
+        /// <summary> turns the string input to a list of Tokens operators or operands </summary>
+        /// <param name="input"> the input string </param>
+        /// <returns> List of tokens </returns>
         private List<Token> GetTokens(string input)
         {
             List<Token> tokens = new List<Token>();
@@ -51,10 +52,16 @@ namespace Calculator
 
         public float Calculate(string input)
         {
+            // translate string input to tokens
             List<Token> tokens = GetTokens(input);
+            // inisiate our stack
             Stack<Token> stack = new Stack<Token>();
             foreach (Token token in tokens)
             {
+                // if the token is a operator pop 2 values of the
+                // stack and the the operator calculation with them
+                // and push the value to the stack
+                // else push the token to the stack
                 if (token is Operator)
                 {
                     float b = ((Operand)stack.Pop()).value;
@@ -67,6 +74,7 @@ namespace Calculator
                     stack.Push(token);
                 }
             }
+            // return the top of the stack
             return ((Operand)stack.Pop()).value;
         }
     }
