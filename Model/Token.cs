@@ -21,17 +21,22 @@ public class Operand : Token
 
 public class Operator : Token
 {
-    public Calculate calculate;
+    private CalculateHandler calculate;
 
     public Operator(string strValue) : base(strValue)
     {
-        calculate = new Calculate((float a, float b) => { return a; });
     }
 
-    public Operator(string strValue, Calculate calc) : base(strValue)
+    public Operator(string strValue, CalculateHandler calc) : base(strValue)
     {
-        calculate = new Calculate(calc);
+        calculate = new CalculateHandler(calc);
     }
 
-    public delegate float Calculate(float a, float b);
+    public delegate float CalculateHandler(float a, float b);
+    public float Calculate(float a,float b){
+        if(calculate != null){
+            return calculate(a,b);
+        }
+        throw new Exception("Operator not set");
+    }
 }

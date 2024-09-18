@@ -66,7 +66,7 @@ namespace Calculator
                 {
                     float b = ((Operand)stack.Pop()).value;
                     float a = ((Operand)stack.Pop()).value;
-                    float ans = ((Operator)token).calculate(a, b);
+                    float ans = ((Operator)token).Calculate(a, b);
                     stack.Push(new Operand(ans));
                 }
                 else
