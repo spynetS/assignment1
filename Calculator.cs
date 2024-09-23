@@ -6,7 +6,7 @@
 		{
 
 			CalculatorController controller =
-				new CalculatorController(new CalculatorViewConsole(),
+				new CalculatorController(new CalculatorViewFile(),
 										 new CalculatorModel());
 
 			controller.Run();

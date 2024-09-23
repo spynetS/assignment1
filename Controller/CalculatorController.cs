@@ -14,11 +14,22 @@ namespace Calculator
                 // ask for input
                 view.Home();
                 // get input
-                string input = view.GetInput();
+                string input;
+                try{
+                    input = view.GetInput();
+                }catch(Exception e){
+                    Console.WriteLine(e.Message);
+                    break;
+                }
                 // if input is not empty calculate the input
                 if(input != ""){
-                    float ans = model.Calculate(input);
-                    view.ShowAnswer(ans);
+                    try{
+                        float ans = model.Calculate(input);
+                        view.ShowAnswer(ans);
+                    }
+                    catch(Exception e){
+                        Console.WriteLine(e.Message);
+                    }
                 }
                 // if input is empty break loop
                 else {break;}
