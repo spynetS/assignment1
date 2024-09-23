@@ -1,25 +1,26 @@
 namespace Calculator
 {
-    public class CalculatorViewConsole : CalculatorView
+    public class CalculatorViewConsole : ICalculatorView
     {
+        public void Exit()
+        {
+            Console.WriteLine("Good bye!");
+        }
+
         public string GetInput()
         {
-            throw new NotImplementedException();
+            return Console.ReadLine();
         }
 
         public void Home()
         {
-            throw new NotImplementedException();
+            Console.Write("Write RPN expression: ");
         }
 
         public void ShowAnswer(float answer)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Result: "+answer);
         }
 
-        public void ShowHelp()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

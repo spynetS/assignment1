@@ -1,11 +1,9 @@
 ﻿using System;
-namespace Calculator.Model
+
+namespace Calculator
 {
     public abstract class Token
     {
         string value = "";
-
     }
 }
-
-

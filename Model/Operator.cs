@@ -1,14 +1,14 @@
 ﻿using System;
-namespace Calculator.Model
+namespace Calculator
 {
-    public class Operator:Token 
+    public class Operator : Token
     {
         public delegate float CalculateHandler(float a, float b);
-
         private CalculateHandler calculateHandler;
-        public Operator(CalculateHandler calculateHandler)
+
+        public Operator(CalculateHandler calculateHandler) : base()
         {
-            this.calculateHandler = calculateHandler;
+            this.calculateHandler = new CalculateHandler(calculateHandler);
         }
 
         public float Calculate (float a, float b)

@@ -1,12 +1,13 @@
 ﻿using System;
 
-namespace Calculator.Model
+namespace Calculator
 {
-    public class Operand :Token 
+    public class Operand : Token
     {
-        private float a;
-        private float b;
-       
+        private float value;
+        public Operand(float value){
+            this.value = value;
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Calculator.Model
+namespace Calculator
 {
     public interface ICalculatorModel
     {

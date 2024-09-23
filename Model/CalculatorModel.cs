@@ -1,69 +1,72 @@
 ﻿using System;
 
-namespace Calculator.Model
+namespace Calculator
 {
     public class CalculatorModel : ICalculatorModel
     {
-        public List<Token> GetToken(string input)
+        public List<Token> GetTokens(string input)
         {
-            List<Token> tockens = new List<Token>();
+            List<Token> tokens = new List<Token>();
             foreach (string value in input.Split(" "))
             {
-               
-                switch (Operation)
+                // Debuggar på detta viset
+                // TODO Tabort denna console.wruiteliune
+                Console.WriteLine("Read " + value);
+
+                switch (value)
                 {
                     case "-":
-                        tockens.Add(new Operator((float a, float b) => a - b));
+                        tokens.Add(new Operator((float a, float b) => a - b));
                         break;
                     case "+":
-                        tockens.Add(new Operator((float a, float b) => a + b));
+                        tokens.Add(new Operator((float a, float b) => a + b));
                         break;
                     case "*":
-                        tockens.Add(new Operator((float a, float b) => a * b));
+                        tokens.Add(new Operator((float a, float b) => a * b));
                         break;
                     case "/":
-                        tockens.Add((float a, float b) =>
+                        tokens.Add(new Operator((float a, float b) =>
                         {
                             if (b == 0)
                             {
                                 throw new DivideByZeroException();
                             }
                             return a / b;
-                        });
+                        }));
                         break;
 
                     case "%":
-                        tockens.Add((float a, float b) =>
+                        tokens.Add(new Operator((float a, float b) =>
                         {
                             if (b == 0)
                             {
                                 throw new DivideByZeroException();
                             }
                             return a % b;
-                        });
+                        }));
                         break;
 
                     default:
                         float fvalue;
                         if (float.TryParse(value, out fvalue))
                         {
-                            tockens.Add(new Operand(fvalue));
+                            tokens.Add(new Operand(fvalue));
                         }
                         else
                         {
                             throw new InvalidTokenException();
                         }
-
                         break;
-
-
                 }
+                Console.WriteLine("La till " + tokens[tokens.Count-1]);
             }
-            Console.WriteLine(tockens);
+            Console.WriteLine(tokens);
+            return tokens;
         }
         public float Calculate(string input)
         {
-
+            List<Token> tokens = GetTokens(input);
+            return 0;
         }
     }
 

@@ -4,7 +4,12 @@
 	{
 		private static void Main(string[] args)
 		{
-			Console.WriteLine("Hello world!");
+
+			CalculatorController controller =
+				new CalculatorController(new CalculatorViewConsole(),
+										 new CalculatorModel());
+
+			controller.Run();
 		}
 	}
 }
