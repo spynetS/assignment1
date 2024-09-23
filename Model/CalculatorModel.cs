@@ -9,10 +9,6 @@ namespace Calculator
             List<Token> tokens = new List<Token>();
             foreach (string value in input.Split(" "))
             {
-                // Debuggar på detta viset
-                // TODO Tabort denna console.wruiteliune
-                Console.WriteLine("Read " + value);
-
                 switch (value)
                 {
                     case "-":
@@ -58,9 +54,7 @@ namespace Calculator
                         }
                         break;
                 }
-                Console.WriteLine("La till " + tokens[tokens.Count-1]);
             }
-            Console.WriteLine(tokens);
             return tokens;
         }
 
