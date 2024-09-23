@@ -63,37 +63,30 @@ namespace Calculator
             Console.WriteLine(tokens);
             return tokens;
         }
+
         public float Calculate(string input)
         {
             List<Token> tokens = GetTokens(input);
-            
-        public float Calculate(string input)
-        {
-            List<Token> tokens = GetTokens(input);
-            MyStack myStack = new MyStack(); 
+            MyStack<Token> myStack = new MyStack<Token>();
 
             foreach (Token token in tokens)
             {
                 if (token is Operand)
                 {
-                   
-                    myStack.Push(((Operand)token).Value); 
+                    myStack.Push(token);
                 }
                 else if (token is Operator)
                 {
-                    float b = (float)myStack.Pop(); 
-                    float a = (float)myStack.Pop();
+                    float b = ((Operand)myStack.Pop()).value;
+                    float a = ((Operand)myStack.Pop()).value;
 
                     
                     float result = ((Operator)token).Calculate(a, b);
-                    myStack.Push(result); 
+                    myStack.Push(new Operand(result));
                 }
             }
 
-            
-            return (float)myStack.Pop();
-        }
-          
+            return ((Operand)myStack.Pop()).value;
         }
     }
 

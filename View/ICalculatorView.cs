@@ -7,5 +7,6 @@ namespace Calculator
 		public string GetInput();
 		public void Exit();
 		public void ShowAnswer(float answer);
+        public void ShowException(Exception e);
 	}
 }

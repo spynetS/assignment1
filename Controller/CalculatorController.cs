@@ -28,7 +28,7 @@ namespace Calculator
                         view.ShowAnswer(ans);
                     }
                     catch(Exception e){
-                        Console.WriteLine(e.Message);
+                        view.ShowException(e);
                     }
                 }
                 // if input is empty break loop

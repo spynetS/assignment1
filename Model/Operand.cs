@@ -4,7 +4,8 @@ namespace Calculator
 {
     public class Operand : Token
     {
-        private float value;
+        public float value {get; set;}
+
         public Operand(float value){
             this.value = value;
         }

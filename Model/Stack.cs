@@ -1,35 +1,29 @@
 ﻿using System;
 using System.Collections;
-namespace Calculator.Model
+
+namespace Calculator
 {
-
-
-    public class MyStack
+    public class MyStack<T>
     {
 
-        //private Stack _stack;
-        /*
+        private Stack<T> _stack;
+
 
         public MyStack()
         {
-            _stack = new Stack(); 
+            _stack = new Stack<T>();
         }
 
 
-        public object Push(object item)
+        public T Push(T item)
         {
-            _stack.Push(item); 
-            return item;      
+            _stack.Push(item);
+            return item;
         }
 
-        public object Pop()
+        public T Pop()
         {
-            if (_stack.Count == 0)
-            {
-                return null; 
-            }
-            return _stack.Pop(); 
+            return _stack.Pop();
         }
-        */
     }
 }

@@ -21,6 +21,9 @@ namespace Calculator
         {
             Console.WriteLine("Result: "+answer);
         }
+        public void ShowException(Exception e){
+            Console.WriteLine(e.Message);
+        }
 
     }
 }

@@ -35,5 +35,10 @@ namespace Calculator
                 writer.WriteLine(answer.ToString());
             }
         }
+        public void ShowException(Exception e){
+            using(StreamWriter writer = File.AppendText("output.txt")){
+                writer.WriteLine(e.Message);
+            }
+        }
     }
 }
