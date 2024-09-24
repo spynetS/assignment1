@@ -1,29 +1,19 @@
-﻿using System;
+using System;
 using System.Collections;
 
 namespace Calculator
 {
-    public class MyStack<T>
-    {
-
-        private Stack<T> _stack;
-
-
-        public MyStack()
-        {
-            _stack = new Stack<T>();
+  public class Mystack<T> : ICollections<T>
+  {
+        public void push (T item) 
+        { 
         }
-
-
-        public T Push(T item)
+        public void pop (T item)
         {
-            _stack.Push(item);
-            return item;
-        }
 
-        public T Pop()
-        {
-            return _stack.Pop();
         }
-    }
+        public int Count 
+
+        
+  }
 }
