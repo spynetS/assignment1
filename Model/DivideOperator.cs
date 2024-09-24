@@ -1,6 +1,9 @@
 ﻿using System;
 namespace Calculator.Model
 {
+	/// <summary>
+	/// This class takes two float parameters and return their quotient
+	/// </summary>
 	public class DivideOperator : Operator
 	{
         public DivideOperator(string value) : base(value) { }

@@ -1,9 +1,15 @@
 ﻿namespace Calculator.Model
 {
-
+    /// <summary>
+    ///This class handles all calculating logics 
+    /// </summary>
     public class CalculatorModel : ICalculatorModel
     {
-
+        /// <summary>
+        /// This function returns a list of tokens based on the input 
+        /// <param name = "string input "> RPN expression </param>
+        /// <returns> list of operand and operators
+        /// </summary>
         public List<Token> GetTokens(string input)
         {
             List<Token> tokens = new List<Token>();
@@ -13,7 +19,11 @@
             }
             return tokens;
         }
-
+        /// <summary>
+        /// This method takes a RPN Expression as a string and after calculation returns a value as float
+        /// </summary>
+        /// <param name = "input"> input is an RPN expression </param>
+        /// <return name > it returns the calculate value  as float </return>
         public float Calculate(string input)
         {
             List<Token> tokens = GetTokens(input);
