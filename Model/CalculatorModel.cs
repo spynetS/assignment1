@@ -13,13 +13,13 @@ namespace Calculator
                 switch (value)
                 {
                     case "-":
-                        tokens.Add(new Operator((float a, float b) => a - b), value);
+                        tokens.Add(new Operator((float a, float b) => a - b, value));
                         break;
                     case "+":
-                        tokens.Add(new Operator((float a, float b) => a + b));
+                        tokens.Add(new Operator((float a, float b) => a + b, value));
                         break;
                     case "*":
-                        tokens.Add(new Operator((float a, float b) => a * b));
+                        tokens.Add(new Operator((float a, float b) => a * b, value));
                         break;
                     case "/":
                         tokens.Add(new Operator((float a, float b) =>
@@ -29,7 +29,7 @@ namespace Calculator
                                 throw new DivideByZeroException();
                             }
                             return a / b;
-                        }));
+                        },value));
                         break;
 
                     case "%":
@@ -40,7 +40,7 @@ namespace Calculator
                                 throw new DivideByZeroException();
                             }
                             return a % b;
-                        }));
+                        }, value));
                         break;
 
                     default:
@@ -62,7 +62,7 @@ namespace Calculator
         public float Calculate(string input)
         {
             List<Token> tokens = GetTokens(input);
-            IEnumerable<Token> myStack = new Mystack<Token>();
+            MyStack<Token> myStack = new MyStack<Token>();
 
             foreach (Token token in tokens)
             {
