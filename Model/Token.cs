@@ -1,6 +1,7 @@
 ﻿using System;
 
-namespace Calculator
+
+namespace Calculator.Model
 {
     public abstract class Token
     {

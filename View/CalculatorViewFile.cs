@@ -1,10 +1,10 @@
-namespace Calculator
+namespace Calculator.View
 {
     public class CalculatorViewFile : ICalculatorView
     {
         private StreamReader reader;
 
-        public CalculatorViewFile(){
+        public CalculatorViewFile(string input, string output) : base(){
             //clears outputfile
             using(StreamWriter writer = File.CreateText("output.txt")){
                 writer.Write("");

@@ -1,9 +1,9 @@
-﻿using System;
-
-namespace Calculator
+﻿namespace Calculator.Model
 {
+
     public class CalculatorModel : ICalculatorModel
     {
+
         public List<Token> GetTokens(string input)
         {
             List<Token> tokens = new List<Token>();

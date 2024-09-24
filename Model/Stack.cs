@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace Calculator
+namespace Calculator.Model
 {
     public class MyStack<T>
     {

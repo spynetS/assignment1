@@ -1,3 +1,7 @@
+
+using Calculator.Model;
+using Calculator.View;
+
 namespace Calculator
 {
     class CalculatorController

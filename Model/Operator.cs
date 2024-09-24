@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Calculator
+namespace Calculator.Model
 {
     public class Operator : Token
     {
