@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace Calculator.Model
+namespace Calculator
 {
     public class CalculatorModel : ICalculatorModel
     {
