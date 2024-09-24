@@ -9,51 +9,7 @@
             List<Token> tokens = new List<Token>();
             foreach (string value in input.Split(" "))
             {
-                switch (value)
-                {
-                    case "-":
-                        tokens.Add(new Operator((float a, float b) => a - b, value));
-                        break;
-                    case "+":
-                        tokens.Add(new Operator((float a, float b) => a + b, value));
-                        break;
-                    case "*":
-                        tokens.Add(new Operator((float a, float b) => a * b, value));
-                        break;
-                    case "/":
-                        tokens.Add(new Operator((float a, float b) =>
-                        {
-                            if (b == 0)
-                            {
-                                throw new DivideByZeroException();
-                            }
-                            return a / b;
-                        },value));
-                        break;
-
-                    case "%":
-                        tokens.Add(new Operator((float a, float b) =>
-                        {
-                            if (b == 0)
-                            {
-                                throw new DivideByZeroException();
-                            }
-                            return a % b;
-                        }, value));
-                        break;
-
-                    default:
-                        float fvalue;
-                        if (float.TryParse(value, out fvalue))
-                        {
-                            tokens.Add(new Operand(fvalue));
-                        }
-                        else
-                        {
-                            throw new InvalidTokenException();
-                        }
-                        break;
-                }
+                tokens.Add(TokenFactory.CreateToken(value));
             }
             return tokens;
         }
@@ -73,7 +29,7 @@
                 {
                     if (myStack.Count < 2)
                     {
-                        throw new InvalidOperationException("");
+                        throw new InvalidOperationException("Exception: Invalid Operation:");
                     }
                     else
                     {
