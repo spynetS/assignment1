@@ -1,6 +1,6 @@
 using System;
 
-namespace Calculator.Model
+namespace Calculator
 {
     public class Operand : Token
     {
