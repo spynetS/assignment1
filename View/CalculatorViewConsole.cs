@@ -1,5 +1,6 @@
 namespace Calculator.View
 {
+    /// <summary>This CalculatorView interacts with the console. It reads from an standard in and writes to a standardout</summary>
     public class CalculatorViewConsole : ICalculatorView
     {
         public void Exit()
@@ -10,7 +11,8 @@ namespace Calculator.View
         public string GetInput()
         {
             Console.Write("Write RPN expression: ");
-            return Console.ReadLine();
+            string? input = Console.ReadLine();
+            return input == null?"":input;
         }
 
         public void ShowAnswer(float answer)

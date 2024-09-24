@@ -1,11 +1,15 @@
 namespace Calculator.View
 {
+    /// <summary>This CalculatorView interacts with 2 files. It reads from an 'input file' and writes to a 'output file'</summary>
     public class CalculatorViewFile : ICalculatorView
     {
         private StreamReader reader;
 
+        /// <summary>Creates the calculate view</summary>
+        /// <param name="input" >the file to read the inputs from</param>
+        /// <param name="output" >the file to write the answers to</param>
         public CalculatorViewFile(string input, string output) : base(){
-            //clears outputfile
+            //clears utputfile
             using(StreamWriter writer = File.CreateText("output.txt")){
                 writer.Write("");
             }
@@ -20,9 +24,7 @@ namespace Calculator.View
         public string GetInput()
         {
             string? input = reader.ReadLine();
-            if(input == null)
-                return "";
-            return input;
+            return input == null?"":input;
         }
 
         public void ShowAnswer(float answer)
