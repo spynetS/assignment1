@@ -1,6 +1,7 @@
-﻿using System;
+using System;
+using System.Collections;
 
-namespace Calculator
+namespace Calculator.Model
 {
     public class CalculatorModel : ICalculatorModel
     {
@@ -12,7 +13,7 @@ namespace Calculator
                 switch (value)
                 {
                     case "-":
-                        tokens.Add(new Operator((float a, float b) => a - b));
+                        tokens.Add(new Operator((float a, float b) => a - b), value);
                         break;
                     case "+":
                         tokens.Add(new Operator((float a, float b) => a + b));
@@ -61,7 +62,7 @@ namespace Calculator
         public float Calculate(string input)
         {
             List<Token> tokens = GetTokens(input);
-            MyStack<Token> myStack = new MyStack<Token>();
+            IEnumerable<Token> myStack = new Mystack<Token>();
 
             foreach (Token token in tokens)
             {
@@ -71,12 +72,19 @@ namespace Calculator
                 }
                 else if (token is Operator)
                 {
-                    float b = ((Operand)myStack.Pop()).value;
-                    float a = ((Operand)myStack.Pop()).value;
+                    if (myStack.Count < 2)
+                    {
+                        throw new InvalidOperationException("");
+                    }
+                    else
+                    {
+                        float b = ((Operand)myStack.Pop()).value;
+                        float a = ((Operand)myStack.Pop()).value;
 
-                    
-                    float result = ((Operator)token).Calculate(a, b);
-                    myStack.Push(new Operand(result));
+
+                        float result = ((Operator)token).Calculate(a, b);
+                        myStack.Push(new Operand(result));
+                    }
                 }
             }
 
