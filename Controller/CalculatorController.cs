@@ -22,7 +22,7 @@ namespace Calculator
                 try{
                     input = view.GetInput();
                 }catch(Exception e){
-                    Console.WriteLine(e.Message);
+                    view.ShowException(e);
                     break;
                 }
                 // if input is not empty calculate the input

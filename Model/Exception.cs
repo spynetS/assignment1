@@ -2,6 +2,10 @@
 
 namespace Calculator.Model
 {
+    ///<summary>
+    ///This class returns an exception when the denominator is zero or modulus by 0
+    ///</summary>
+
     public class DivideByZeroException : Exception
     {
 
@@ -17,11 +21,11 @@ namespace Calculator.Model
 
         }
 
-
-
-
     }
 
+    ///<summary>
+    ///This class returns an exception when the operation is not (+,-,*,/,%)
+    ///</summary>
 
     public class InvalidOperationException : Exception
     {
@@ -38,6 +42,9 @@ namespace Calculator.Model
 
     }
 
+    ///<summary>
+    ///This class returns an exception when the operand is not a number 
+    ///</summary>
 
 
     public class InvalidTokenException : Exception
