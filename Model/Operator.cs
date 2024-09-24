@@ -1,19 +1,15 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Calculator.Model
 {
-    public class Operator:Token 
+    public abstract class Operator : Token 
     {
-        public delegate float CalculateHandler(float a, float b);
+        public Operator(string value) : base(value) { }
 
-        private CalculateHandler calculateHandler;
-        public Operator(CalculateHandler calculateHandler, string value)
-            : base(value)
+        public virtual float Calculate (float a, float b)
         {
-            this.calculateHandler = calculateHandler;
-        }
-
-        public float Calculate (float a, float b)
-        {
-            return calculateHandler(a, b);
+            throw new NotImplementedException ();
+            return 0;
         }
 
     }
