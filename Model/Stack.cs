@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 
 namespace Calculator.Model
@@ -7,7 +7,7 @@ namespace Calculator.Model
     {
 
         private Stack<T> _stack;
-
+        public int Count {  get { return _stack.Count; } }
 
         public MyStack()
         {
