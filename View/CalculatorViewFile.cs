@@ -25,10 +25,6 @@ namespace Calculator.View
             return input;
         }
 
-        public void Home()
-        {
-        }
-
         public void ShowAnswer(float answer)
         {
             using(StreamWriter writer = File.AppendText("output.txt")){

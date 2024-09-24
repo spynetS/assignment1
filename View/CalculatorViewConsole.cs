@@ -9,12 +9,8 @@ namespace Calculator.View
 
         public string GetInput()
         {
-            return Console.ReadLine();
-        }
-
-        public void Home()
-        {
             Console.Write("Write RPN expression: ");
+            return Console.ReadLine();
         }
 
         public void ShowAnswer(float answer)

@@ -15,8 +15,6 @@ namespace Calculator
         }
         public void Run(){
             while(true){
-                // ask for input
-                view.Home();
                 // get input
                 string input;
                 try{
