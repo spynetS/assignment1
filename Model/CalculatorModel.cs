@@ -43,8 +43,8 @@
                     }
                     else
                     {
-                        float b = ((Operand)myStack.Pop()).value;
-                        float a = ((Operand)myStack.Pop()).value;
+                        Operand b = (Operand)myStack.Pop();
+                        Operand a = (Operand)myStack.Pop();
 
 
                         float result = ((Operator)token).Calculate(a, b);
