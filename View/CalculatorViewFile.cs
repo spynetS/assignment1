@@ -1,3 +1,4 @@
+//2024 Tock13: Group 1, Alfred Roos, Fadumo Jama, Rahaf Jomaa
 namespace Calculator.View
 {
     /// <summary>This CalculatorView interacts with 2 files. It reads from an 'input file' and writes to a 'output file'</summary>

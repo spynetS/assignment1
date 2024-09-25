@@ -1,3 +1,4 @@
+//2024 Tock13: Group 1, Alfred Roos, Fadumo Jama, Rahaf Jomaa
 namespace Calculator.View
 {
     /// <summary>This CalculatorView interacts with the console. It reads from an standard in and writes to a standardout</summary>

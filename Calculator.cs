@@ -1,3 +1,4 @@
+//2024 Tock13: Group 1, Alfred Roos, Fadumo Jama, Rahaf Jomaa
 ﻿using Calculator.Model;
 using Calculator.View;
 
