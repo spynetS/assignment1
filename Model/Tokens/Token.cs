@@ -14,7 +14,7 @@ namespace Calculator.Model
         /// </summary>
         public override string ToString()
         {
-            return base.ToString();
+            return value;
         }
         /// <summary>
         /// A constructor that initials the token with a value

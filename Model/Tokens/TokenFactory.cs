@@ -40,7 +40,6 @@ namespace Calculator.Model
                     {
                         throw new InvalidTokenException("Exception: Invalid Token: "+type);
                     }
-                    break;
             }
         }
     }
