@@ -8,9 +8,9 @@ namespace Calculator.Model
     public class SumOperator : Operator
     {
         public SumOperator(string value) : base(value) { }
-        public override float Calculate(float a, float b) 
+        public override float Calculate(Operand a, Operand b)
 		{ 
-			return a + b;
+			return a.value + b.value;
 		}
 	}
 }

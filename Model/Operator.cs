@@ -14,7 +14,7 @@ namespace Calculator.Model
         /// <param name="a">The first operand to be calculated with</param>
         /// <param name="b">The second operand to be calculated with</param>
         /// <returns>The calculated value from a and b defined by subclasses.</returns>
-        public virtual float Calculate (float a, float b)
+        public virtual float Calculate (Operand a, Operand b)
         {
             throw new NotImplementedException ();
         }
