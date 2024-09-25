@@ -11,7 +11,7 @@ namespace Calculator.Model
 		{
 			if (b.value == 0)
 			{
-				throw new DivideByZeroException("Exception: Divide By Zero: " + a + "/" + b);
+				throw new DivideByZeroException("Exception: Divide By Zero: " + a.value + "/" + b.value);
 			}
 			return a.value / b.value;
 		}
