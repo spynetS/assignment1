@@ -1,63 +1,29 @@
-﻿using System;
-
-namespace Calculator
+﻿namespace Calculator.Model
 {
+    /// <summary>
+    ///This class handles all calculating logics 
+    /// </summary>
     public class CalculatorModel : ICalculatorModel
     {
+        /// <summary>
+        /// This function returns a list of tokens based on the input 
+        /// <param name = "string input "> RPN expression </param>
+        /// <returns> list of operand and operators
+        /// </summary>
         public List<Token> GetTokens(string input)
         {
             List<Token> tokens = new List<Token>();
             foreach (string value in input.Split(" "))
             {
-                switch (value)
-                {
-                    case "-":
-                        tokens.Add(new Operator((float a, float b) => a - b));
-                        break;
-                    case "+":
-                        tokens.Add(new Operator((float a, float b) => a + b));
-                        break;
-                    case "*":
-                        tokens.Add(new Operator((float a, float b) => a * b));
-                        break;
-                    case "/":
-                        tokens.Add(new Operator((float a, float b) =>
-                        {
-                            if (b == 0)
-                            {
-                                throw new DivideByZeroException();
-                            }
-                            return a / b;
-                        }));
-                        break;
-
-                    case "%":
-                        tokens.Add(new Operator((float a, float b) =>
-                        {
-                            if (b == 0)
-                            {
-                                throw new DivideByZeroException();
-                            }
-                            return a % b;
-                        }));
-                        break;
-
-                    default:
-                        float fvalue;
-                        if (float.TryParse(value, out fvalue))
-                        {
-                            tokens.Add(new Operand(fvalue));
-                        }
-                        else
-                        {
-                            throw new InvalidTokenException();
-                        }
-                        break;
-                }
+                tokens.Add(TokenFactory.CreateToken(value));
             }
             return tokens;
         }
-
+        /// <summary>
+        /// This method takes a RPN Expression as a string and after calculation returns a value as float
+        /// </summary>
+        /// <param name = "input"> input is an RPN expression </param>
+        /// <return name > it returns the calculate value  as float </return>
         public float Calculate(string input)
         {
             List<Token> tokens = GetTokens(input);
@@ -71,12 +37,19 @@ namespace Calculator
                 }
                 else if (token is Operator)
                 {
-                    float b = ((Operand)myStack.Pop()).value;
-                    float a = ((Operand)myStack.Pop()).value;
+                    if (myStack.Count < 2)
+                    {
+                        throw new InvalidOperationException("Exception: Invalid Operation:");
+                    }
+                    else
+                    {
+                        Operand b = (Operand)myStack.Pop();
+                        Operand a = (Operand)myStack.Pop();
 
-                    
-                    float result = ((Operator)token).Calculate(a, b);
-                    myStack.Push(new Operand(result));
+
+                        float result = ((Operator)token).Calculate(a, b);
+                        myStack.Push(new Operand(result));
+                    }
                 }
             }
 
