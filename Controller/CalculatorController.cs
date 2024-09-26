@@ -3,7 +3,7 @@
 using Calculator.Model;
 using Calculator.View;
 
-namespace Calculator
+namespace Calculator.Controller
 {
     /// <summary>
     /// This is the calculator controller which handels the whole calculator.
