@@ -25,7 +25,7 @@ namespace Calculator.View
         public string GetInput()
         {
             string? input = reader.ReadLine();
-            return input == null?"":input;
+            return input == null ? "" : input;
         }
 
         public void ShowAnswer(float answer)

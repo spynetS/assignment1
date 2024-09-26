@@ -13,7 +13,7 @@ namespace Calculator.View
         {
             Console.Write("Write RPN expression: ");
             string? input = Console.ReadLine();
-            return input == null?"":input;
+            return input == null ? "" : input;
         }
 
         public void ShowAnswer(float answer)
