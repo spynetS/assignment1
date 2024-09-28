@@ -18,7 +18,7 @@ namespace Calculator.View
 
         public void ShowAnswer(float answer)
         {
-            Console.WriteLine("Result: "+answer);
+            Console.WriteLine("Result: "+answer.ToString("0.00"));
         }
         public void ShowException(Exception e){
             Console.WriteLine(e.Message);

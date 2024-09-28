@@ -31,7 +31,7 @@ namespace Calculator.View
         public void ShowAnswer(float answer)
         {
             using(StreamWriter writer = File.AppendText("output.txt")){
-                writer.WriteLine(answer.ToString());
+                writer.WriteLine(answer.ToString("0.00"));
             }
         }
         public void ShowException(Exception e){

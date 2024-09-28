@@ -12,7 +12,7 @@ namespace Calculator.Model
 		{
 			if (b.value == 0)
 			{
-				throw new DivideByZeroException("Exception: Divide By Zero: " + a.value + "/" + b.value);
+				throw new DivideByZeroException("Exception: Divide By Zero: " + a.value.ToString("0.00") + "/" + b.value.ToString("0.00"));
 			}
 			return a.value / b.value;
 		}
